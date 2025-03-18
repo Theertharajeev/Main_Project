@@ -1,0 +1,75 @@
+{% extends 'yogatrainer/Yoga home.html' %}
+
+{% block title %}
+    Profile Details
+{% endblock %}
+
+{% block body %}
+<body class="bg-light">
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card border-0 shadow-lg">
+                    <div class="card-body">
+                        <div class="row">
+                            <!-- Profile Details -->
+                            <div class="col-md-6">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item"><strong>Name:</strong> {{ details.name }}</li>
+                                    <li class="list-group-item"><strong>Email:</strong> {{ details.email }}</li>
+                                    <li class="list-group-item"><strong>Phone:</strong> {{ details.phone }}</li>
+                                    <li class="list-group-item"><strong>Place:</strong> {{ details.place }}</li>
+                                    <li class="list-group-item"><strong>Pin:</strong> {{ details.pin }}</li>
+                                    <li class="list-group-item"><strong>Post:</strong> {{ details.post }}</li>
+                                    <li class="list-group-item"><strong>Language:</strong> {{ details.language }}</li>
+                                    <li class="list-group-item"><strong>Experience:</strong> {{ details.experience }}</li>
+                                    <li class="list-group-item">
+                                        <strong>Certificate:</strong>
+                                        {% if details.certificate %}
+                                            <a href="{{ details.certificate.url }}" target="_blank">
+                                                {% if ".pdf" in details.certificate.url or ".docx" in details.certificate.url %}
+                                                    <span class="badge bg-info text-white ms-2">View File</span>
+                                                {% else %}
+                                                    <img src="{{ details.certificate.url }}" class="img-thumbnail" style="max-height: 200px;" alt="Certificate">
+                                                {% endif %}
+                                            </a>
+                                        {% else %}
+                                            <span class="text-muted">No certificate uploaded</span>
+                                        {% endif %}
+                                    </li>
+                                    <li class="list-group-item">
+                                        <strong>License:</strong>
+                                        {% if details.licence %}
+                                            <a href="{{ details.licence.url }}" target="_blank">
+                                                {% if ".pdf" in details.licence.url or ".docx" in details.licence.url %}
+                                                    <span class="badge bg-info text-white ms-2">View File</span>
+                                                {% else %}
+                                                    <img src="{{ details.licence.url }}" class="img-thumbnail" style="max-height: 200px;" alt="License">
+                                                {% endif %}
+                                            </a>
+                                        {% else %}
+                                            <span class="text-muted">No license uploaded</span>
+                                        {% endif %}
+                                    </li>
+                                </ul>
+                                <div class="text-center mt-4">
+                                    <a href="/trainer_update#content" class="btn btn-primary">Update Profile</a>
+                                </div>
+                            </div>
+                            <!-- Profile Image -->
+                            <div class="col-md-6 text-center">
+                                <h5 class="mb-4">Profile Image</h5>
+                                {% if details.image %}
+                                    <img src="{{ details.image.url }}" class="img-fluid shadow-lg border" style="max-height: 250px; width: 250px; object-fit: cover;" alt="Profile Image">
+                                {% else %}
+                                    <span class="text-muted">No image uploaded</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}

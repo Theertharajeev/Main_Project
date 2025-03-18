@@ -1,0 +1,91 @@
+{% extends 'yogatrainer/Yoga home.html' %}
+
+{% block title %}
+    Edit Profile
+{% endblock %}
+
+{% block body %}
+<body class="bg-light">
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card border-0 shadow-lg">
+                    <div class="card-header bg-primary text-white text-center">
+                        <h3>Edit Profile</h3>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST" enctype="multipart/form-data" action="/trainer_update_post">
+                            {% csrf_token %}
+                            <div class="row">
+                                <!-- Left Side Fields -->
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="name" class="form-label"><strong>Name</strong></label>
+                                        <input type="text" id="name" name="name" class="form-control" value="{{ data.name }}" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label"><strong>Email</strong></label>
+                                        <input type="email" id="email" name="email" class="form-control" value="{{ data.email }}" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="phone" class="form-label"><strong>Phone</strong></label>
+                                        <input type="text" id="phone" name="phone" class="form-control" value="{{ data.phone }}" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="place" class="form-label"><strong>Place</strong></label>
+                                        <input type="text" id="place" name="place" class="form-control" value="{{ data.place }}" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="pin" class="form-label"><strong>Pin</strong></label>
+                                        <input type="text" id="pin" name="pin" class="form-control" value="{{ data.pin }}" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="post" class="form-label"><strong>Post</strong></label>
+                                        <input type="text" id="post" name="post" class="form-control" value="{{ data.post }}" required>
+                                    </div>
+                                </div>
+                                <!-- Right Side Fields -->
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="language" class="form-label"><strong>Language</strong></label>
+                                        <input type="text" id="language" name="language" class="form-control" value="{{ data.language }}" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="experience" class="form-label"><strong>Experience</strong></label>
+                                        <input type="text" id="experience" name="experience" class="form-control" value="{{ data.experience }}" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="certificate" class="form-label"><strong>Certificate</strong></label>
+                                        {% if data.certificate %}
+                                            <a href="{{ data.certificate.url }}" target="_blank" class="d-block mb-2">View Current Certificate</a>
+                                        {% endif %}
+                                        <input type="file" id="certificate" name="certificate" class="form-control">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="licence" class="form-label"><strong>License</strong></label>
+                                        {% if data.licence %}
+                                            <a href="{{ data.licence.url }}" target="_blank" class="d-block mb-2">View Current License</a>
+                                        {% endif %}
+                                        <input type="file" id="licence" name="licence" class="form-control">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="image" class="form-label"><strong>Profile Image</strong></label>
+                                        {% if data.image %}
+                                            <img src="{{ data.image.url }}" alt="Profile Image" class="img-thumbnail mb-2" style="max-height: 150px;">
+                                        {% endif %}
+                                        <input type="file" id="image" name="image" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center mt-4">
+                                <button type="submit" class="btn btn-success">Save Changes</button>
+                                <a href="/yoga_profile" class="btn btn-secondary ms-2">Cancel</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'Doctor/doct_home.html' %}
+
+{% block title %}
+Doctor Search
+{% endblock %}
+
+{% block body %}
+<body class="bg-light">
+    <div class="container my-5 border rounded shadow-lg p-4">
+        <h3 class="text-center">Verify Bookings</h3>
+        <form id="form1" name="form1" method="post" action="/doc_search">
+            {% csrf_token %}
+            <div class="row mb-4 align-items-end mt-5">
+                <div class="col-md-4">
+                    <label for="start_date">From</label>
+                    <input type="date" id="start_date" name="textfield" required pattern="\d{4}-\d{2}-\d{2}" class="form-control" />
+                </div>
+                <div class="col-md-4">
+                    <label for="end_date">To</label>
+                    <input type="date" id="end_date" name="textfield2" required pattern="\d{4}-\d{2}-\d{2}" class="form-control" />
+                </div>
+                <div class="col-md-4 text-md-right">
+                    <label>&nbsp;</label><br>
+                    <input type="submit" name="GO" value="Search" class="btn btn-primary" />
+                </div>
+            </div>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Schedule Info</th>
+                        <th>User Info</th>
+                        <th>Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in bok %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>Date: {{ i.SCHEDULE_ID.date }}<br>
+                            From: {{ i.SCHEDULE_ID.from_time }}<br>
+                            To: {{ i.SCHEDULE_ID.to_time }}</td>
+                        <td>{{ i.USER_ID.name }}</td>
+                        <td>{{ i.date }}</td>
+                        <td>
+                            <p><a href="/doctor_accept/{{ i.id }}" class="btn btn-success">Accept</a></p>
+                            <p><a href="/doctor_reject/{{ i.id }}" class="btn btn-danger">Reject</a></p>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="5" class="text-center">No bookings available</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </form>
+    </div>
+</body>
+{% endblock %}

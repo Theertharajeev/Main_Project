@@ -1,0 +1,49 @@
+{% extends 'yogatrainer/Yoga home.html' %}
+{% block title %}
+    Tips
+{% endblock %}
+{% block body %}
+
+    <body>
+    <div class="container">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover table-striped">
+                <thead class="table-dark">
+                <tr>
+                    <th scope="col">S.No</th>
+                    <th scope="col">Tips</th>
+                    <th scope="col">Details</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Actions</th>
+                </tr>
+                </thead>
+                {% if dic %}
+
+                    <tbody style="color: white">
+                    {% for i in dic %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ i.tips }}</td>
+                            <td>{{ i.descriptions }}</td>
+                            <td>{{ i.date }}</td>
+                            <td>
+                                <a href="/delete_tips/{{ i.id }}" class="btn btn-danger btn-sm">Delete</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    <tr>
+                        <td colspan="5" class="text-center">
+                            <a href="/add_Tips#content" class="btn btn-primary">Add Tips</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                    </table>
+                {% else %}
+                        <tr><td colspan="5" class="text-center">No tips available.</td></tr>
+                        <tr><td colspan="5" class="text-center"><a href="/add_Tips#content" class="btn btn-primary">Add Tips</a></td></tr>
+                {% endif %}
+        </div>
+    </div>
+    </body>
+
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'admin/admin home  page.html' %}
+{% block title %}
+Recommended Doctors
+{% endblock %}
+{% block body %}
+  <div class="container mt-4">
+    <h3 class="text-center mb-4">Recommended Doctors</h3>
+
+    <!-- Search Form -->
+    <form id="form1" name="form1" method="post" action="search_doctor">
+      <div class="mb-3">
+        <label for="doctor-name" class="form-label">Search by Doctor Name</label>
+        <div class="input-group">
+          <input type="text" name="textfield" required class="form-control" id="doctor-name" placeholder="Enter Doctor's Name" />
+          <button type="submit" name="GO" value="gO" class="btn btn-primary">Search</button>
+        </div>
+      </div>
+    </form>
+
+    <!-- Table -->
+    <div class="card">
+      <div class="card-body">
+        <table class="table table-bordered table-striped table-hover">
+          <thead>
+            <tr class="table-dark">
+              <th scope="col">Date</th>
+              <th scope="col">Doctor Name</th>
+              <th scope="col">Review</th>
+              <th scope="col">Rating</th>
+            </tr>
+          </thead>
+        {% if rev %}
+          <tbody>
+            {% for i in rev %}
+              <tr>
+                <td>{{ i.date }}</td>
+                <td>{{ i.DOCTOR_ID.name }}</td>
+                <td>{{ i.review }}</td>
+                <td>
+                  <span class="badge bg-warning text-dark">{{ i.rating }}</span>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        {% else %}
+            <tbody>
+            <tr>
+                <div class="alert alert-warning text-center mt-4"> No Doctors Found</div>
+            </tr>
+            </tbody>
+        {% endif %}
+        </table>
+      </div>
+    </div>
+  </div>
+{% endblock %}

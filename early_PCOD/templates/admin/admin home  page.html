@@ -1,0 +1,215 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#<body>#}
+{#<form id="form1" name="form1" method="post" action="">#}
+{#  <table width="265" border="1">#}
+{#    <tr>#}
+{#      <td width="224"><a href="/viewuser">View Users</a></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td><a href="/doctorverify">View doctors and Verify</a></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td><a href="/viewbookings">View Patient info & Progress</a></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td><a href="/viewnotification">Send and Manage Notification</a></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td><a href="/viewdoctorbasedreview">View Doctor Based Review & Rating</a></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td><a href="/Trainer_verify">View Trainer and Accept/Reject</a></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td><a href="/changepassword">Change Password</a></td>#}
+{#    </tr>#}
+{#  </table>#}
+{#</form>#}
+{#<a href="#"></a>#}
+{#</body>#}
+{#</html>#}
+
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Early Pcod</title>
+    <link rel="shortcut icon" type="image/png" href="../../static/admin/assets/images/logos/seodashlogo.png"/>
+    <link rel="stylesheet" href="../../static/admin/assets/css/styles.min.css"/>
+</head>
+
+<body>
+<!--  Body Wrapper -->
+<div class="page-wrapper" style="background-color: white;height: 100vh" id="main-wrapper" data-layout="vertical"
+     data-navbarbg="skin6" data-sidebartype="full"
+     data-sidebar-position="fixed" data-header-position="fixed">
+    <!-- Sidebar Start -->
+    <aside class="left-sidebar" style="background-color: rgba(0,0,0,0.95)">
+        <!-- Sidebar scroll-->
+        <div>
+            <div class="brand-logo d-flex align-items-center justify-content-between">
+                <a href="/admin_dash" class="text-nowrap logo-img">
+
+                    <img src="../../media/pcod_logo.png" style="height: 100px;width: 200px" alt=""/ >
+                </a>
+                <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
+                    <i class="ti ti-x fs-8"></i>
+                </div>
+            </div>
+            <!-- Sidebar navigation-->
+            <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+                <ul id="sidebarnav">
+{#                    <li class="nav-small-cap">#}
+{#                        <i class="ti ti-dots nav-small-cap-icon fs-6"></i>#}
+{#                        <span class="hide-menu" style="color: white">Home</span>#}
+{#                    </li>#}
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="/admin_dash" aria-expanded="false">
+                <span style="color: white">
+                  <iconify-icon icon="solar:home-smile-bold-duotone" class="fs-6"></iconify-icon>
+                </span>
+                            <span class="hide-menu" style="color: white">Dashboard</span>
+                        </a>
+                    </li>
+{#                    <li class="nav-small-cap">#}
+{#                        <i class="ti ti-dots nav-small-cap-icon fs-6" style="color: white"></i>#}
+{#                        <span class="hide-menu" style="color: white">Functions</span>#}
+{#                    </li>#}
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="/viewuser" aria-expanded="false">
+    <span>
+      <iconify-icon icon="fa6-solid:user" style="color: white" class="fs-6"></iconify-icon>
+    </span>
+                            <span class="hide-menu" style="color: white">Users</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="/viewdoctors" aria-expanded="false">
+    <span>
+      <iconify-icon icon="fa6-solid:user-doctor" style="color: white" class="fs-6"></iconify-icon>
+    </span>
+                            <span class="hide-menu" style="color: white">Doctors</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="/viewbookings" aria-expanded="false">
+    <span>
+      <iconify-icon icon="solar:bookmark-square-minimalistic-bold-duotone" class="fs-6"
+                    style="color: white"></iconify-icon>
+    </span>
+                            <span class="hide-menu" style="color: white">Bookings</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="/viewnotification" aria-expanded="false">
+    <span>
+      <iconify-icon icon="solar:file-text-bold-duotone" style="color: white" class="fs-6"></iconify-icon>
+    </span>
+                            <span class="hide-menu" style="color: white">Notification</span>
+                        </a>
+                    </li>
+{#                    <li class="sidebar-item">#}
+{#                        <a class="sidebar-link" href="/Trainers" aria-expanded="false">#}
+{#    <span>#}
+{#      <iconify-icon icon="healthicons:exercise-yoga" class="fs-6" style="color: white"></iconify-icon>#}
+{#    </span>#}
+{#                            <span class="hide-menu" style="color: white">Yoga Trainers</span>#}
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="/changepassword" aria-expanded="false">
+    <span>
+      <iconify-icon icon="iconamoon:lock-off-fill" class="fs-6" style="color: white"></iconify-icon>
+    </span>
+                            <span class="hide-menu" style="color: white">Change Password</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="/admin_view_complaint" aria-expanded="false">
+    <span>
+      <iconify-icon icon="iconamoon:lock-off-fill" class="fs-6" style="color: white"></iconify-icon>
+    </span>
+                            <span class="hide-menu" style="color: white">Complaints</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="/log_out" aria-expanded="false">
+    <span>
+      <iconify-icon icon="line-md:logout" style="color: white" class="fs-6"></iconify-icon>
+    </span>
+                            <span class="hide-menu" style="color: white">Logout</span>
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
+            <!-- End Sidebar navigation -->
+        </div>
+        <!-- End Sidebar scroll-->
+    </aside>
+    <!--  Sidebar End -->
+    <!--  Main wrapper -->
+    <div class="body-wrapper">
+        <!--  Header Start -->
+        {#        <div>#}
+        {#            <header class="app-header">#}
+        {#                <nav class="navbar navbar-expand-lg navbar-light">#}
+        {#                    <div class="navbar-collapse justify-content-end px-0" id="navbarNav">#}
+        {#                        <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">#}
+        {#                            <li class="nav-item dropdown">#}
+        {#                                <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2"#}
+        {#                                   data-bs-toggle="dropdown"#}
+        {#                                   aria-expanded="false">#}
+        {#                                    <img src="../../static/admin/assets/images/profile/user-1.jpg" alt="" width="35"#}
+        {#                                         height="35" class="rounded-circle">#}
+        {#                                </a>#}
+        {#                            </li>#}
+        {#                        </ul>#}
+        {#                    </div>#}
+        {#                </nav>#}
+        {#            </header>#}
+        {#        </div>#}
+        <!--  Header End -->
+        <div class="container">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="container">
+                            {% block body %}
+
+                            {% endblock %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {#        <div>#}
+        {#            <div class="py-6 px-6 text-center">#}
+        {#                <p class="mb-0 fs-4">Design and Developed by <a href="https://adminmart.com/" target="_blank"#}
+        {#                                                                class="pe-1 text-primary text-decoration-underline">AdminMart.com</a>Distributed#}
+        {#                    by <a href="https://themewagon.com/" target="_blank"#}
+        {#                          class="pe-1 text-primary text-decoration-underline">ThemeWagon</a></p>#}
+        {#            </div>#}
+        {#        </div>#}
+    </div>
+</div>
+<script src="../../static/admin/assets/libs/jquery/dist/jquery.min.js"></script>
+<script src="../../static/admin//assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../../static/admin//assets/libs/apexcharts/dist/apexcharts.min.js"></script>
+<script src="../../static/admin//assets/libs/simplebar/dist/simplebar.js"></script>
+<script src="../../static/admin//assets/js/sidebarmenu.js"></script>
+<script src="../../static/admin//assets/js/app.min.js"></script>
+<script src="../../static/admin//assets/js/dashboard.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+</body>
+
+</html>

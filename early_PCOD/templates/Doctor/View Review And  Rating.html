@@ -1,0 +1,69 @@
+{% extends 'Doctor/doct_home.html' %}
+
+{% block title %}
+    User Reviews
+{% endblock %}
+
+{% block body %}
+    <body class="bg-light">
+    <div class="container my-5 border rounded shadow-lg p-4">
+        <div class="card border-0">
+            <div class="card-header bg-primary text-white text-center">
+                <h3>User Reviews</h3>
+            </div>
+            <div class="card-body">
+                <form id="form1" name="form1" method="post" action="">
+                    {% csrf_token %}
+                    <table class="table table-bordered">
+                        <thead class="thead-light">
+                        <tr>
+                            <th>S.no</th>
+                            <th>Date</th>
+                            <th>User</th>
+                            <th>Review</th>
+                            <th>Rating</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for i in rev %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ i.date }}</td>
+                                <td>{{ i.USER.name }}</td>
+                                <td>{{ i.review }}</td>
+                                <td>
+                                    <span class="star-rating">
+                                        {% for star in '12345' %}
+                                            {% if star|add:"0"|floatformat:0 <= i.rating|floatformat:0 %}
+                                                        ★
+                                            {% else %}
+                                                ☆
+                                            {% endif %}
+                                            {% endfor %}
+                                    </span>
+{#                                    {% for star in i.rating %}  <!-- Assume a maximum rating of 5 stars -->#}
+{#                                        {% if forloop.counter <= i.rating|floatformat:0 %}#}
+{#                                            <span class="text-warning">&#9733;</span> <!-- Filled star -->#}
+{#                                        {% elif forloop.counter == i.rating|floatformat:1|slice:":-1" %}#}
+{#                                            <span class="text-warning">&#9733;&#189;</span> <!-- Half star -->#}
+{#                                        {% else %}#}
+{#                                            <span class="text-secondary">&#9734;</span> <!-- Empty star -->#}
+{#                                        {% endif %}#}
+{#                                    {% endfor %}#}
+                                </td>
+
+
+                            </tr>
+                        {% empty %}
+                            <tr>
+                                <td colspan="5" class="text-center">No reviews available</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+    </body>
+{% endblock %}

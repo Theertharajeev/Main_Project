@@ -1,0 +1,49 @@
+{% extends 'yogatrainer/Yoga home.html' %}
+{% block title %}
+Add Tips
+{% endblock %}
+{% block body %}
+
+<body>
+    <div class="container my-5">
+        <form id="form1" name="form1" method="post" action="/trainer_add_tips_post">
+            <div class="mb-3">
+                <label for="tips" class="form-label" style="color: white">Tips</label>
+                <input type="text" class="form-control" name="textfield" id="tips" placeholder="Tips" required pattern="[A-Za-z0-9\s]+" title="Only letters and numbers are allowed.">
+                <div class="invalid-feedback">
+                    Please enter a valid tip.
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="details" class="form-label" style="color: white">Details</label>
+                <textarea class="form-control" name="textarea" id="details" required minlength="10" placeholder="Details" title="Details must be at least 10 characters long."></textarea>
+                <div class="invalid-feedback">
+                    Please enter at least 10 characters for details.
+                </div>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Example of Bootstrap validation
+        (function () {
+            'use strict'
+            var forms = document.querySelectorAll('.needs-validation')
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+    </script>
+</body>
+
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'admin/admin home  page.html' %}
+{% block title %}
+    Cards
+{% endblock %}
+{% block body %}
+    <div class="container" style="margin-top: 50px">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-4 border border-dark"> <!-- Added border and shadow-lg class -->
+                    <div class="card-body">
+                        <h5 class="card-title">Total Users</h5>
+                        <p class="card-text">{{ user }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 border border-dark"> <!-- Added border and shadow-lg class -->
+                    <div class="card-body">
+                        <h5 class="card-title">Pending Doctor Verifications</h5>
+                        <p class="card-text">{{ pdoc }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 border border-dark"> <!-- Added border and shadow-lg class -->
+                    <div class="card-body">
+                        <h5 class="card-title">Notifications</h5>
+                        <p class="card-text">{{ noti }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+{#            <div class="col-md-4">#}
+{#                <div class="card mb-4 border border-dark"> <!-- Added border and shadow-lg class -->#}
+{#                    <div class="card-body">#}
+{#                        <h5 class="card-title">Pending Trainer Verifications</h5>#}
+{#                        <p class="card-text">{{ ptra }}</p>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+            <div class="col-md-4">
+                <div class="card mb-4 border border-dark"> <!-- Added border and shadow-lg class -->
+                    <div class="card-body">
+                        <h5 class="card-title">Total Bookings</h5>
+                        <p class="card-text">{{ book }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

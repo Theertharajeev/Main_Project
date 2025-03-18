@@ -1,0 +1,46 @@
+{% extends 'yogatrainer/Yoga home.html' %}
+{% block title %}
+Videos
+{% endblock %}
+{% block body %}
+
+<body>
+    <div class="container my-5">
+        <form id="form1" name="form1" method="post" action="">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover table-striped">
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col">S.No</th>
+                            <th scope="col">Video Link</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody style="color: white">
+                        {% for i in vv %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <!-- Ensure the video URL opens in a new tab -->
+                                <td><a style="color: white" href="{{ i.video.url }}" target="_blank">{{ i.video }}</a></td>
+                                <td>{{ i.descriptions }}</td>
+                                <td>{{ i.date }}</td>
+                                <td>
+                                    <a href="/delete_videos/{{ i.id }}" class="btn btn-danger btn-sm">Delete</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        <tr>
+                            <td colspan="5" class="text-center">
+                                <a href="/yoga_videos#content" class="btn btn-primary">Add Video</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </form>
+    </div>
+</body>
+
+{% endblock %}

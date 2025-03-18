@@ -1,0 +1,47 @@
+{% extends 'admin/admin home  page.html' %}
+{% block title %}
+Bookings
+{% endblock %}
+{% block body %}
+  <div class="container mt-4">
+    <h3 class="text-center mb-4">Bookings</h3>
+
+    <!-- Table -->
+    <div class="card">
+      <div class="card-body">
+        <table class="table table-bordered table-striped table-hover">
+          <thead>
+            <tr class="table-dark">
+              <th scope="col">S.no</th>
+              <th scope="col">Doctor Info</th>
+              <th scope="col">User Info</th>
+              <th scope="col">Schedule Info</th>
+              <th scope="col">Date</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for i in book %}
+              <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ i.SCHEDULE_ID.DOCTOR_ID.name }}</td>
+                <td>{{ i.USER_ID.name }}</td>
+                <td>{{ i.SCHEDULE_ID.date }} {{ i.SCHEDULE_ID.from_time }} - {{ i.SCHEDULE_ID.to_time }}</td>
+                <td>{{ i.date }}</td>
+                <td>
+                  {% if i.status == 'accepted' %}
+                    <span class="badge bg-success">Confirmed</span>
+                  {% elif i.status == 'pending' %}
+                    <span class="badge bg-warning text-dark">Pending</span>
+                  {% else %}
+                    <span class="badge bg-danger">Cancelled</span>
+                  {% endif %}
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+{% endblock %}
